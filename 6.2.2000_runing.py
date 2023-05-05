@@ -9,8 +9,8 @@ def timer(func,*args ,**kwargs):
     return end - start
 
 
-
-'''x =timer("Hi {name}".format, name="Bug")
-print(x)
-Y =timer(zip, [1, 2, 3], [4, 5, 6])
-print(Y)'''
+if __name__ == "__main__":
+   x =timer("Hi {name}".format, name="Bug")
+   print(x)
+   Y =timer(zip, [1, 2, 3], [4, 5, 6])
+   print(Y)
