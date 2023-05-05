@@ -88,11 +88,11 @@ class PostOffice:
             user_box.append(message)
         return self.message_id
 
-    def read_inbox(self, username, N):
+    def read_inbox(self, username, number_message_to_read):
         """Read a user's inbox.
         Args:
             username (str): The user username.
-            N (int): The number of messages to read.
+            number_message_to_read (int): The number of messages to read.
         Returns:
             list: A list of the last N messages in the user inbox.
         Raises:
@@ -113,12 +113,12 @@ class PostOffice:
         if username not in self.boxes:
             raise KeyError("User does not exist")
         user_box = self.boxes[username]
-        if N == 0:
+        if number_message_to_read == 0:
             return user_box
 
-        if N > len(user_box):
-            N = len(user_box)
-        return user_box[:N]
+        if number_message_to_read > len(user_box):
+            number_message_to_read = len(user_box)
+        return user_box[:number_message_to_read]
 
     def search_inbox(self, username, keywords):
         """Search a user's inbox.
